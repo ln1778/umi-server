@@ -1,0 +1,29 @@
+{
+  "name": "umi-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "umi"
+  ],
+  "author": "ln1778",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ln1778/umi-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ln1778/umi-server/issues"
+  },
+  "homepage": "https://github.com/ln1778/umi-server#readme",
+  "peerDependencies": {
+    "axios":"^1.4.0",
+    "@ant-design/icons": "^5.0.1",
+    "@ant-design/pro-components": "^2.4.4",
+    "@umijs/max": "^4.0.67",
+    "antd": "^5.4.0"
+  }
+}
