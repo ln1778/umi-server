@@ -1,6 +1,7 @@
 {
-  "name": "umi-server",
-  "version": "1.0.0",
+  "private": false,
+  "name": "ln1778-umiserver",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {

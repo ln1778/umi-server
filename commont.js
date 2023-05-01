@@ -79,65 +79,7 @@ export function jsonurldata(datas) {
   return outdata;
 }
 
-//把时间戳格式化成标准格式 第一个参数为时间戳，第二个参数为格式例如 ‘Y-m-d h:M:s'
-export function formatDate(date, format) {
-  const days = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
-  if (typeof date === 'number' || typeof date === 'string') {
-    if (date.length < 13) {
-      const j = 13 - date.length;
-      for (let i = 0; i < j; i++) {
-        date = date + '0';
-      }
-    }
 
-    date = new Date(Number(date));
-  } else if (typeof date === 'undefined') {
-    return '';
-  }
-  if (!format) {
-    format = 'Y-m-d';
-  }
-  let hour = '';
-  let Minute = '';
-  let Seconds = '';
-  let day = '';
-  let month = '';
-  if (Number(date.getHours()) < 10) {
-    hour = '0' + String(date.getHours());
-  } else {
-    hour = date.getHours();
-  }
-  if (Number(date.getMinutes()) < 10) {
-    Minute = '0' + String(date.getMinutes());
-  } else {
-    Minute = date.getMinutes();
-  }
-  if (Number(date.getSeconds()) < 10) {
-    Seconds = '0' + String(date.getSeconds());
-  } else {
-    Seconds = date.getSeconds();
-  }
-  if (Number(date.getMonth() + 1) < 10) {
-    month = '0' + String(date.getMonth() + 1);
-  } else {
-    month = date.getMonth() + 1;
-  }
-  if (Number(date.getData()) < 10) {
-    day = '0' + String(date.getData());
-  } else {
-    day = date.getData();
-  }
-
-  format = format
-    .replace('Y', date.getFullYear())
-    .replace('m', month)
-    .replace('d', day)
-    .replace('h', hour)
-    .replace('M', Minute)
-    .replace('D', days[date.getDay()])
-    .replace('s', Seconds);
-  return format;
-}
 
 export function isWeiXin() {
   let ua = window.navigator.userAgent.toLowerCase();
@@ -147,7 +89,6 @@ export function isWeiXin() {
     return false;
   }
 }
-
 // 压缩图片
 export function canvasfn(imgsrc, truewidth, trueheight, is_cut) {
   return new Promise((resolve, reject) => {
@@ -227,6 +168,7 @@ export function canvasfn(imgsrc, truewidth, trueheight, is_cut) {
   });
 }
 
+
 export function html_encode(str) {
   var s = '';
   if (str.length === 0) return '';
@@ -272,6 +214,7 @@ export function html_format(str) {
   s = s.replace(/<\/h4>/g, '');
   return s;
 }
+
 export function html_decode(str) {
   var s = '';
   if (!str || Array.from(str).length === 0) return '';
@@ -320,6 +263,7 @@ const reg =
 function isUrl(route) {
   return reg.test(route);
 }
+
 export function formatter(data, parentPath = '/', parentAuthority) {
   return data.map((item) => {
     let { route } = item;
@@ -341,6 +285,7 @@ export function formatter(data, parentPath = '/', parentAuthority) {
     return result;
   });
 }
+
 export function getTitle(pathname, menu) {
   const newmune = formatter(menu);
   let selemune = null;
@@ -397,3 +342,6 @@ export function Difference(arr2, arr3) {
     return arr2.indexOf(v) === -1 || arr3.indexOf(v) === -1;
   });
 }
+
+
+export default {formatter,Difference,isIos,getQueryString,addCookie,getCookie,delCookie,isWeiXin,addSession,getSession,delSession,addStorage,getStorage,deloneStorage,delAllStorage,jsonurldata,canvasfn,html_decode,html_encode,html_format,getScrollTop,isMobile,getLocation,getTitle};
