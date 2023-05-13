@@ -1,9 +1,9 @@
 import { useState, useEffect, useReducer } from 'react';
 import axios, * as defaultAxios from 'axios';
-import { getStorage, deloneStorage } from './commont';
 import { initialResponse, responseReducer, actions } from './reducers';
 import { message } from 'antd';
 import { history } from 'umi';
+const { getStorage, deloneStorage }=require("./commont").default;
 /**
  * Params
  * @param  {AxiosInstance} axios - (optional) The custom axios instance
