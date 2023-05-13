@@ -1,6 +1,6 @@
 import { useState, useEffect, useReducer } from 'react';
 import axios, * as defaultAxios from 'axios';
-import { getStorage, deloneStorage } from 'commont';
+import { getStorage, deloneStorage } from './commont';
 import { initialResponse, responseReducer, actions } from './reducers';
 import { message } from 'antd';
 import { history } from 'umi';
@@ -137,7 +137,7 @@ export default ({
       .then((response: any) => {
         console.log(response, 'response');
         if (response.data.code == 400) {
-          if (response.data.error && response.data.error.should_login) {
+          if (response.data.error && response.data.error.login&& response.data.error.login==1) {
             deloneStorage('token');
             history.push('/login.html');
           } else if (

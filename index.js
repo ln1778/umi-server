@@ -1,9 +1,11 @@
-import config from "./config";
-import useAxios from "./axios_hooks";
-import commont from "./commont";
+const config=require("./config").default;
+const useAxios=require("./axios_hooks").default;
+const commont =require("./commont").default;
 
  
+export {useAxios};
+export {config};
+export {commont};
 
-const Index={useAxios,config,commont};
 
-export default Index;
+module.export={useAxios:useAxios,config:config,commont:commont};

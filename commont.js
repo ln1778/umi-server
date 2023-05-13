@@ -1,17 +1,17 @@
-import { func } from 'prop-types';
-export function setTitle(title) {
+
+ function setTitle(title) {
   document.title = title;
 }
 
 //获取url上的参数值 e为参数名称
-export function getQueryString(e) {
+ function getQueryString(e) {
   var t = new RegExp('(^|/?|&)' + e + '=([^&]*)(&|$)');
   var a = window.location.search.substr(1).match(t);
   if (a != null) return a[2];
   return '';
 }
 //获取Cookie值 e为cookie的名 例如key
-export function getCookie(e) {
+ function getCookie(e) {
   var t = document.cookie;
   var a = t.split('; ');
   for (var n = 0; n < a.length; n++) {
@@ -20,7 +20,7 @@ export function getCookie(e) {
   }
   return null;
 }
-export function addCookie(e, t, a) {
+ function addCookie(e, t, a) {
   var n = e + '=' + escape(t) + '; path=/';
   if (a > 0) {
     var r = new Date();
@@ -30,7 +30,7 @@ export function addCookie(e, t, a) {
   document.cookie = n;
 }
 //删除Cookie
-export function delCookie(e) {
+ function delCookie(e) {
   const t = new Date();
   t.setTime(t.getTime() - 1);
   const a = getCookie(e);
@@ -39,35 +39,35 @@ export function delCookie(e) {
 }
 
 //添加Session
-export function addSession(key, value) {
+ function addSession(key, value) {
   return sessionStorage.setItem(key, value);
 }
 // 获取Session
-export function getSession(key) {
+ function getSession(key) {
   return sessionStorage.getItem(key);
 }
 // 删除Session
-export function delSession(key) {
+ function delSession(key) {
   return sessionStorage.removeItem(key);
 }
 // 添加本地存储
-export function addStorage(key, value) {
+ function addStorage(key, value) {
   localStorage.setItem(key, value);
 }
 // 获取本地存储
-export function getStorage(key) {
+ function getStorage(key) {
   return localStorage.getItem(key);
 }
 // 删除本地存储指定的值
-export function deloneStorage(key) {
+ function deloneStorage(key) {
   localStorage.removeItem(key);
 }
 // 删除所有本地存储的值
-export function delAllStorage() {
+ function delAllStorage() {
   localStorage.clear();
 }
 // JSON数据转换 url后的参数格式
-export function jsonurldata(datas) {
+ function jsonurldata(datas) {
   const dataarray = [];
   const datakeys = Array.from(Object.keys(datas));
   const datavalue = Array.from(Object.values(datas));
@@ -81,7 +81,7 @@ export function jsonurldata(datas) {
 
 
 
-export function isWeiXin() {
+ function isWeiXin() {
   let ua = window.navigator.userAgent.toLowerCase();
   if (ua.match(/MicroMessenger/i) == 'micromessenger') {
     return true;
@@ -90,7 +90,7 @@ export function isWeiXin() {
   }
 }
 // 压缩图片
-export function canvasfn(imgsrc, truewidth, trueheight, is_cut) {
+ function canvasfn(imgsrc, truewidth, trueheight, is_cut) {
   return new Promise((resolve, reject) => {
     const canvas = document.createElement('canvas');
     const cts = canvas.getContext('2d');
@@ -169,7 +169,7 @@ export function canvasfn(imgsrc, truewidth, trueheight, is_cut) {
 }
 
 
-export function html_encode(str) {
+ function html_encode(str) {
   var s = '';
   if (str.length === 0) return '';
   s = str.replace(/&/g, '&gt;');
@@ -181,7 +181,7 @@ export function html_encode(str) {
   s = s.replace(/\n/g, '<br>');
   return s;
 }
-export function getScrollTop() {
+ function getScrollTop() {
   var scrollTop = 0;
   if (document.documentElement && document.documentElement.scrollTop) {
     scrollTop = document.documentElement.scrollTop;
@@ -190,7 +190,7 @@ export function getScrollTop() {
   }
   return scrollTop;
 }
-export function html_format(str) {
+ function html_format(str) {
   var s = '';
   if (str.length == 0) return '';
   if (typeof str == 'number') {
@@ -215,7 +215,7 @@ export function html_format(str) {
   return s;
 }
 
-export function html_decode(str) {
+ function html_decode(str) {
   var s = '';
   if (!str || Array.from(str).length === 0) return '';
   s = str.replace(/&gt;/g, '&');
@@ -227,11 +227,11 @@ export function html_decode(str) {
   s = s.replace(/<br>/g, '\n');
   return s;
 }
-export function backtop() {
+ function backtop() {
   window.scrollTo(0, 0);
 }
 
-export function isMobile() {
+ function isMobile() {
   if (
     navigator.userAgent.match(
       /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i,
@@ -245,7 +245,7 @@ export function isMobile() {
   }
 }
 
-export function getLocation() {
+ function getLocation() {
   return new Promise((resolve, reject) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -264,7 +264,7 @@ function isUrl(route) {
   return reg.test(route);
 }
 
-export function formatter(data, parentPath = '/', parentAuthority) {
+ function formatter(data, parentPath = '/', parentAuthority) {
   return data.map((item) => {
     let { route } = item;
     if (isUrl(route)) {
@@ -286,7 +286,7 @@ export function formatter(data, parentPath = '/', parentAuthority) {
   });
 }
 
-export function getTitle(pathname, menu) {
+ function getTitle(pathname, menu) {
   const newmune = formatter(menu);
   let selemune = null;
   if (pathname && pathname != '' && pathname != '/') {
@@ -329,7 +329,7 @@ export function getTitle(pathname, menu) {
   }
 }
 
-export function isIos() {
+ function isIos() {
   if (navigator.userAgent.match(/iPhone/)) {
     return true;
   } else {
@@ -337,7 +337,7 @@ export function isIos() {
   }
 }
 
-export function Difference(arr2, arr3) {
+ function Difference(arr2, arr3) {
   return arr2.concat(arr3).filter(function (v) {
     return arr2.indexOf(v) === -1 || arr3.indexOf(v) === -1;
   });
